@@ -6,11 +6,11 @@ GO
 
 CREATE TABLE Daty (
     ID NUMERIC PRIMARY KEY,
-    Dzieñ NUMERIC,
-    Miesi¹c VARCHAR(11) CHECK (Miesi¹c IN ('Styczeñ', 'Luty', 'Marzec', 'Kwiecieñ', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpieñ', 'Wrzesieñ', 'PaŸdziernik', 'Listopad', 'Grudzieñ')),
+    Dzien NUMERIC,
+    Miesiac VARCHAR(11) CHECK (Miesiac IN ('Styczen', 'Luty', 'Marzec', 'Kwiecien', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpien', 'Wrzesien', 'Pazdziernik', 'Listopad', 'Grudzien')),
     Miesiac_No NUMERIC,
     Rok NUMERIC,
-    Dzien_tygodnia VARCHAR(12) CHECK (Dzien_tygodnia IN ('Poniedzia³ek', 'Wtorek', 'Œroda', 'Czwartek', 'Pi¹tek', 'Sobota', 'Niedziela'))
+    Dzien_tygodnia VARCHAR(12) CHECK (Dzien_tygodnia IN ('Poniedzialek', 'Wtorek', 'Sroda', 'Czwartek', 'Piatek', 'Sobota', 'Niedziela'))
 );
 GO
 
@@ -43,8 +43,8 @@ CREATE TABLE Pracownicy (
     ID NUMERIC PRIMARY KEY,
     ImieINazwisko VARCHAR(36),
     ID_miasta NUMERIC,
-    Wyksztalcenie VARCHAR(20) CHECK (Wyksztalcenie IN ('podstawowe', 'œrednie', 'wy¿sze')),
-    Stanowisko VARCHAR(20) CHECK (Stanowisko IN ('Serwisant', 'Osoba sprz¹taj¹ca')),
+    Wyksztalcenie VARCHAR(20) CHECK (Wyksztalcenie IN ('podstawowe', 'srednie', 'wyzsze')),
+    Stanowisko VARCHAR(20) CHECK (Stanowisko IN ('Serwisant', 'Osoba sprzatajaca')),
     ID_data_rozpoczecia NUMERIC,
     ID_data_zakonczenia NUMERIC,
     FOREIGN KEY (ID_miasta) REFERENCES Miasta(ID),
