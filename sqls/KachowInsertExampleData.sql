@@ -1,3 +1,6 @@
+ USE Kachow
+GO
+
 INSERT INTO Problemy (ID, Nazwa) VALUES
 (1, 'brak'),
 (2, 'usterka'),
@@ -35,8 +38,8 @@ GO
 INSERT INTO Pojazdy (ID, ID_DaneModeli, Nr_rejestracyjny, VIN) VALUES
 (1, 1, 'DW12345', 'VIN12341775901234'),
 (2, 2, 'DW6789B', 'VIN12345616701235'),
-(1, 1, 'GD12345', 'VIN12345612901234'),
-(2, 2, 'GA6G893', 'VIN12345678965435');
+(3, 1, 'GD12345', 'VIN12345612901234'),
+(4, 2, 'GA6G893', 'VIN12345678965435');
 GO
 
 INSERT INTO Miasta (ID, Nazwa, Liczba_mieszkancow, Powierzchnia) VALUES
@@ -44,18 +47,18 @@ INSERT INTO Miasta (ID, Nazwa, Liczba_mieszkancow, Powierzchnia) VALUES
 (2, 'Kraków', '250tys.-500tys.', '100-250km^2');
 GO
 
-INSERT INTO Pracownicy (ID, ImieINazwisko, ID_miasta, Wyksztalcenie, Stanowisko, ID_data_rozpoczecia, ID_data_zakonczenia) VALUES
-(1, 'Jan Kowalski', 1, 'wyzsze', 'Serwisant', 1, 2),
-(2, 'Anna Nowak', 2, 'srednie', 'Osoba sprzątająca', 3, 6),
-(3, 'Jan Kowalski', 2, 'wyzsze', 'Serwisant', 2, 7),
-(4, 'Anna Nowak', 2, 'wyzsze', 'Osoba sprzątająca', 6, 9);
+INSERT INTO Pracownicy (ID, ImieINazwisko, ID_miasta, Wyksztalcenie, Stanowisko, IsCurrent) VALUES
+(1, 'Jan Kowalski', 1, 'wyzsze', 'Serwisant', 0),
+(2, 'Anna Nowak', 2, 'srednie', 'Osoba sprzatajaca', 0),
+(3, 'Jan Kowalski', 2, 'wyzsze', 'Serwisant', 1),
+(4, 'Anna Nowak', 2, 'wyzsze', 'Osoba sprzatajaca', 1);
 GO
 
-INSERT INTO Uzytkownicy (ID, ImieINazwisko, Nr_prawa_jazdy, ID_data_rozpoczecia, ID_data_zakonczenia) VALUES
-(1, 'Piotr Wiśniewski', 'NRJAZDY123', 1, 4),
-(2, 'Katarzyna Mazur', 'NRJAZDY456', 2, 7),
-(3, 'Piotr Wiśniewski', 'NRJAZ13156', 4, 12),
-(4, 'Katarzyna Mazur', 'NRJAZD1676', 7, 14);
+INSERT INTO Uzytkownicy (ID, ImieINazwisko, Nr_prawa_jazdy, IsCurrent) VALUES
+(1, 'Piotr Wiśniewski', 'NRJAZDY123', 0),
+(2, 'Katarzyna Mazur', 'NRJAZDY456', 0),
+(3, 'Piotr Wiśniewski', 'NRJAZ13156', 1),
+(4, 'Katarzyna Mazur', 'NRJAZD1676', 1);
 GO
 
 INSERT INTO Przejazdy (ID, Czas, Dystans, Zuzyte_paliwo, ID_data, ID_Uzytkownika, ID_Miasta, ID_Pojazdu, ID_Problem, Cena, Liczba_mieszkancow_miasta) VALUES

@@ -1,3 +1,6 @@
+USE Kachow
+GO
+
 CREATE TABLE Problemy (
     ID NUMERIC PRIMARY KEY,
     Nazwa VARCHAR(30) CHECK (Nazwa IN ('brak', 'usterka', 'brudny_pojazd', 'brak_paliwa', 'usterka_i_brudny_pojazd', 'usterka_i_brak_paliwa', 'brudny_pojazd_i_brak_paliwa', 'wszystkie'))
@@ -45,11 +48,8 @@ CREATE TABLE Pracownicy (
     ID_miasta NUMERIC,
     Wyksztalcenie VARCHAR(20) CHECK (Wyksztalcenie IN ('podstawowe', 'srednie', 'wyzsze')),
     Stanowisko VARCHAR(20) CHECK (Stanowisko IN ('Serwisant', 'Osoba sprzatajaca')),
-    ID_data_rozpoczecia NUMERIC,
-    ID_data_zakonczenia NUMERIC,
-    FOREIGN KEY (ID_miasta) REFERENCES Miasta(ID),
-    FOREIGN KEY (ID_data_rozpoczecia) REFERENCES Daty(ID),
-    FOREIGN KEY (ID_data_zakonczenia) REFERENCES Daty(ID)
+    IsCurrent NUMERIC CHECK(IsCurrent IN (0, 1)),
+    FOREIGN KEY (ID_miasta) REFERENCES Miasta(ID)
 );
 GO
 
@@ -57,10 +57,7 @@ CREATE TABLE Uzytkownicy (
     ID NUMERIC PRIMARY KEY,
     ImieINazwisko VARCHAR(36),
     Nr_prawa_jazdy VARCHAR(13),
-    ID_data_rozpoczecia NUMERIC,
-    ID_data_zakonczenia NUMERIC,
-    FOREIGN KEY (ID_data_rozpoczecia) REFERENCES Daty(ID),
-    FOREIGN KEY (ID_data_zakonczenia) REFERENCES Daty(ID)
+	IsCurrent NUMERIC CHECK(IsCurrent IN (0, 1))
 );
 GO
 
