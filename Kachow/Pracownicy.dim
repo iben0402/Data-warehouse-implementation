@@ -1,0 +1,148 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="857dac58-1969-4cb6-8a3f-9a31df1b7346" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Pracownicy</ID>
+  <Name>Pracownicy</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="09c18fd2-b803-40f9-84a0-555190b8c4e4">
+    <DataSourceViewID>Kachow</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="381a9fdf-f514-446c-9168-81a26659cd01">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="482402e6-716a-4cbc-a4ee-ff7944e171ab">
+      <ID>ID</ID>
+      <Name>ID</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9a1b6305-e7f7-4be2-a22f-d9d9c92eb2df">
+          <DataType>Double</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e8937534-e018-4efe-b047-108b62f56f9e">
+            <TableID>dbo_Pracownicy</TableID>
+            <ColumnID>ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a060e51e-6198-426f-bbcf-79c17edfaa67">
+        <DataType>WChar</DataType>
+        <DataSize>36</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="17ec76cb-9a56-489f-bc8c-aaf86df258ad">
+          <TableID>dbo_Pracownicy</TableID>
+          <ColumnID>ImieINazwisko</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="15cbd383-355b-4820-8d26-5966f9f626e1">
+          <AttributeID>Wyksztalcenie</AttributeID>
+          <Name>Wyksztalcenie</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c923572f-ed37-4c65-9c8a-558aa7e01c64">
+          <AttributeID>Stanowisko</AttributeID>
+          <Name>Stanowisko</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="aaed983e-c24a-4bf7-973f-feb2714d195d">
+          <AttributeID>ID Miasta</AttributeID>
+          <Name>ID Miasta</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="70354631-de80-4f5e-ba54-e4dd1b0c2fe0">
+      <ID>Wyksztalcenie</ID>
+      <Name>Wyksztalcenie</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="747437bb-2a0a-40ff-bf45-e59c5754780e">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="290f7b76-ef9c-44f3-8954-88ea8409158c">
+            <TableID>dbo_Pracownicy</TableID>
+            <ColumnID>Wyksztalcenie</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dd3a4896-e1df-49e1-b33a-c8778b9892b5">
+      <ID>Stanowisko</ID>
+      <Name>Stanowisko</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9137e453-411b-4c01-a19c-d0dd8aa547bb">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4f566799-4ff5-4806-a9a1-a3ac3148a1d0">
+            <TableID>dbo_Pracownicy</TableID>
+            <ColumnID>Stanowisko</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="59cb0084-9109-4569-92c7-a4bc8a84aa34">
+      <ID>ID Miasta</ID>
+      <Name>ID Miasta</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="71a70fa4-aa12-4e73-bade-02ac85431de5">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="40deb6e6-62c5-4fbc-bab9-c50e8da96d2a">
+            <TableID>dbo_Pracownicy</TableID>
+            <ColumnID>ID_miasta</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
