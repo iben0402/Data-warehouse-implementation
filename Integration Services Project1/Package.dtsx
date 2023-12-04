@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/4/2023 5:52:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="IWONA"
+  DTS:CreatorName="IWONA\iwona"
+  DTS:DTSID="{F17D392C-C91C-44FD-8100-B3F8BF299655}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5396.0"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{E83F3032-9AE1-4E0F-B89A-BA173D4AACFF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>
