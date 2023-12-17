@@ -1,0 +1,7 @@
+CREATE DATABASE KachowDW
+GO
+
+USE KachowMaster
+GO
+
+SELECT * FROM Problemy

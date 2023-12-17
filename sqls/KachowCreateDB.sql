@@ -1,5 +1,0 @@
-CREATE DATABASE Kachow
-GO
-
-USE Kachow
-GO

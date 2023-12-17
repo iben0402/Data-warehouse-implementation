@@ -1,14 +1,14 @@
-USE Kachow
+USE KachowDW
 GO
 
 CREATE TABLE Problemy (
-    ID NUMERIC PRIMARY KEY,
+    ID NUMERIC IDENTITY(1,1) PRIMARY KEY,
     Nazwa VARCHAR(30) CHECK (Nazwa IN ('brak', 'usterka', 'brudny_pojazd', 'brak_paliwa', 'usterka_i_brudny_pojazd', 'usterka_i_brak_paliwa', 'brudny_pojazd_i_brak_paliwa', 'wszystkie'))
 );
 GO
 
 CREATE TABLE Daty (
-    ID NUMERIC PRIMARY KEY,
+    ID NUMERIC IDENTITY(1,1) PRIMARY KEY,
     Dzien NUMERIC,
     Miesiac VARCHAR(11) CHECK (Miesiac IN ('Styczen', 'Luty', 'Marzec', 'Kwiecien', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpien', 'Wrzesien', 'Pazdziernik', 'Listopad', 'Grudzien')),
     Miesiac_No NUMERIC,
@@ -18,7 +18,7 @@ CREATE TABLE Daty (
 GO
 
 CREATE TABLE DaneModeli (
-    ID NUMERIC PRIMARY KEY,
+    ID NUMERIC IDENTITY(1,1) PRIMARY KEY,
     Marka VARCHAR(15),
     Model VARCHAR(15),
     Srednie_spalanie VARCHAR(18) CHECK (Srednie_spalanie IN ('<5l/100km', 'od 5 do 8 l/100km', '>8l/100km'))
@@ -26,7 +26,7 @@ CREATE TABLE DaneModeli (
 GO
 
 CREATE TABLE Pojazdy (
-    ID NUMERIC PRIMARY KEY,
+    ID NUMERIC IDENTITY(1,1) PRIMARY KEY,
     ID_DaneModeli NUMERIC,
     Nr_rejestracyjny VARCHAR(10),
     VIN VARCHAR(17),
@@ -35,7 +35,7 @@ CREATE TABLE Pojazdy (
 GO
 
 CREATE TABLE Miasta (
-    ID NUMERIC PRIMARY KEY,
+    ID NUMERIC IDENTITY(1,1) PRIMARY KEY,
     Nazwa VARCHAR(15),
     Liczba_mieszkancow VARCHAR(15) CHECK (Liczba_mieszkancow IN ('do 100tys.', '100tys.-250tys.', '250tys.-500tys.', 'od 500tys.')),
     Powierzchnia VARCHAR(13) CHECK (Powierzchnia IN ('do 25km^2', '25-100km^2', '100-250km^2', 'od 250km^2'))
@@ -43,8 +43,8 @@ CREATE TABLE Miasta (
 GO
 
 CREATE TABLE Pracownicy (
-    ID NUMERIC PRIMARY KEY,
-    ImieINazwisko VARCHAR(36),
+    ID NUMERIC IDENTITY(1,1) PRIMARY KEY,
+    ImieINazwisko VARCHAR(41),
     ID_miasta NUMERIC,
     Wyksztalcenie VARCHAR(20) CHECK (Wyksztalcenie IN ('podstawowe', 'srednie', 'wyzsze')),
     Stanowisko VARCHAR(20) CHECK (Stanowisko IN ('Serwisant', 'Osoba sprzatajaca')),
@@ -54,9 +54,9 @@ CREATE TABLE Pracownicy (
 GO
 
 CREATE TABLE Uzytkownicy (
-    ID NUMERIC PRIMARY KEY,
-    ImieINazwisko VARCHAR(36),
-    Nr_prawa_jazdy VARCHAR(13),
+    ID NUMERIC IDENTITY(1,1) PRIMARY KEY,
+    ImieINazwisko VARCHAR(41),
+    Nr_prawa_jazdy VARCHAR(14),
 	IsCurrent NUMERIC CHECK(IsCurrent IN (0, 1))
 );
 GO
@@ -93,4 +93,27 @@ CREATE TABLE Operacje (
     FOREIGN KEY (ID_Pojazd) REFERENCES Pojazdy(ID),
     FOREIGN KEY (DataID) REFERENCES Daty(ID)
 );
+GO
+USE KachowDW
+GO
+ALTER TABLE Uzytkownicy
+ALTER COLUMN Nr_prawa_jazdy VARCHAR(14)
+
+USE KachowDW
+GO
+DROP TABLE Operacje
+GO 
+DROP TABLE Przejazdy
+GO
+DROP TABLE Uzytkownicy
+GO
+DROP TABLE Miasta
+GO
+DROP TABLE Pojazdy
+GO
+DROP TABLE DaneModeli
+GO
+DROP TABLE Daty
+GO
+DROP TABLE Problemy
 GO

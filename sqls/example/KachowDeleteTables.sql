@@ -27,3 +27,7 @@ GO
 
 DROP TABLE dbo.Problemy
 GO
+
+USE bookstoreDW
+
+DROP DATABASE Kachow
