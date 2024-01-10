@@ -1,0 +1,55 @@
+WITH 
+MEMBER [Measures].[Liczba przejazdow w poprzednim miesiacu] AS 
+    '(
+        PARALLELPERIOD(
+            [Daty].[Hierarchy].[Miesiac], 
+            1, 
+            [Daty].[Hierarchy].CurrentMember
+        ),
+        [Measures].[Liczba_przejazdow]
+    )'
+MEMBER [Measures].[Wzrost liczby przejazdow] AS 
+    '[Measures].[Liczba_przejazdow] - [Measures].[Liczba przejazdow w poprzednim miesiacu]'
+
+SELECT 
+    {
+        [Measures].[Liczba_przejazdow], 
+        [Measures].[Liczba przejazdow w poprzednim miesiacu],
+        [Measures].[Wzrost liczby przejazdow]
+    } ON COLUMNS,
+    TOPCOUNT(
+        [Pojazdy].[Model].Members, 
+		1,
+        [Measures].[Wzrost liczby przejazdow]
+    ) ON ROWS
+FROM [Kachow]
+WHERE [Daty].[Hierarchy].[Rok].[2021].[May]
+
+
+
+
+
+SELECT 
+    TOPCOUNT(
+        [Pojazdy].[Model].Children, 
+        1, 
+        [Measures].[Cena_wszystkich_operacji]
+    ) ON ROWS,
+    {
+        [Measures].[Cena_wszystkich_operacji]
+    } ON COLUMNS
+FROM [Kachow]
+WHERE [Daty].[Hierarchy].[Rok].[2021].[May];
+
+
+
+
+
+SELECT 
+    NON EMPTY 
+    [Miasta].[Nazwa].Members ON ROWS,
+    {
+        [Measures].[Liczba_operacji]
+    } ON COLUMNS
+FROM [Kachow]
+WHERE [Problemy].[Nazwa].usterka;

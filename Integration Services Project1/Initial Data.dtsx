@@ -7,15 +7,27 @@
   DTS:CreatorName="IWONA\iwona"
   DTS:DTSID="{2BA4E038-2414-44E8-B6B5-265EAF5FE5E1}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5396.0"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
   DTS:LocaleID="1045"
   DTS:ObjectName="Initial Data"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{50AC2FE1-950D-4BF7-9369-35F83E38F671}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{E4DEB007-DC1D-46E1-A859-10CAA2A69D02}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IWONA.Kachow]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{05F6D92E-063A-4E4F-8AE0-E7230F1A491E}"
+      DTS:ObjectName="IWONA.Kachow">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=IWONA;Initial Catalog=Kachow;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Initial Data-{05F6D92E-063A-4E4F-8AE0-E7230F1A491E}IWONA.Kachow;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[IWONA.KachowDW]"
       DTS:CreationName="OLEDB"
@@ -44,13 +56,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\Insert into Daty"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{93D8E25F-63AD-47B1-8266-3F019FE65025}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="Insert into Daty"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -58,7 +70,83 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\Insert into Daty\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Insert into Daty\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert into Daty\Data Conversion.Inputs[Data Conversion Input].Columns[Day_2]"
+                      cachedDataType="i4"
+                      cachedName="Day_2"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Day_2]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Insert into Daty\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Output].Columns[Day]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Output].Columns[Day]"
+                      name="Day"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Day_2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Insert into Daty\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert into Daty\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -107,7 +195,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions">TABLOCK</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -115,81 +203,88 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[IWONA.KachowDW]"
-                  connectionManagerRefId="Package.ConnectionManagers[IWONA.KachowDW]"
+                  refId="Package\Insert into Daty\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[IWONA.Kachow]"
+                  connectionManagerRefId="Package.ConnectionManagers[IWONA.Kachow]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Month]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Month]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="9"
                       cachedName="Month"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month]" />
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[monthId]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[monthId]"
                       cachedDataType="i4"
                       cachedName="monthId"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac_No]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[monthId]" />
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac_No]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[monthId]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="Year"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rok]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]" />
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rok]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[weekDay]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[weekDay]"
                       cachedCodepage="1250"
                       cachedDataType="str"
                       cachedLength="9"
                       cachedName="weekDay"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dzien_tygodnia]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDay]" />
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dzien_tygodnia]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDay]" />
+                    <inputColumn
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Day]"
+                      cachedDataType="numeric"
+                      cachedName="Day"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dzien]"
+                      lineageId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Output].Columns[Day]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                       dataType="numeric"
                       name="ID"
                       precision="18" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dzien]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dzien]"
                       dataType="numeric"
                       name="Dzien"
                       precision="18" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac]"
                       codePage="1250"
                       dataType="str"
                       length="11"
                       name="Miesiac" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac_No]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac_No]"
                       dataType="numeric"
                       name="Miesiac_No"
                       precision="18" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rok]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rok]"
                       dataType="numeric"
                       name="Rok"
                       precision="18" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dzien_tygodnia]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dzien_tygodnia]"
                       codePage="1250"
                       dataType="str"
                       length="12"
@@ -199,22 +294,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Insert into Daty\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Insert into Daty\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Insert into Daty\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Insert into Daty\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -223,7 +318,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Source"
+              refId="Package\Insert into Daty\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -260,7 +355,7 @@ WITH Nbrs_3( n ) AS ( SELECT 1 UNION SELECT 0 ),
      Nbrs_0( n ) AS ( SELECT 1 FROM Nbrs_1 n1 CROSS JOIN Nbrs_1 n2 ),
      Nbrs  ( n ) AS ( SELECT 1 FROM Nbrs_0 n1 CROSS JOIN Nbrs_0 n2 )
 
-	SELECT @Start+n-1 as "Date", CAST(YEAR(@Start+n-1) AS VARCHAR(4)) as Year, month(@Start+n-1) as monthId, case month(@Start+n-1)
+	SELECT DAY(@Start+n-1) as "Day", CAST(YEAR(@Start+n-1) AS VARCHAR(4)) as Year, month(@Start+n-1) as monthId, case month(@Start+n-1)
 WHEN 1 THEN 'January'
 WHEN 2 THEN 'February'
 WHEN 3 THEN 'March'
@@ -309,7 +404,7 @@ END as weekDay
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  refId="Package\Insert into Daty\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[IWONA.KachowMaster]"
                   connectionManagerRefId="Package.ConnectionManagers[IWONA.KachowMaster]"
                   description="The OLE DB runtime connection used to access the database."
@@ -317,155 +412,155 @@ END as weekDay
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
-                      name="Date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]"
                       codePage="1250"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
                       length="4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]"
                       name="Year"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[monthId]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[monthId]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[monthId]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[monthId]"
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[monthId]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[monthId]"
                       name="monthId"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month]"
                       codePage="1250"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Month]"
                       length="9"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month]"
                       name="Month"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDayId]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDayId]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weekDayId]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDayId]"
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weekDayId]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDayId]"
                       name="weekDayId"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDay]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDay]"
                       codePage="1250"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weekDay]"
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weekDay]"
                       length="9"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDay]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[weekDay]"
                       name="weekDay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Day_2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Day]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].Columns[Day_2]"
+                      name="Day_2"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
-                      dataType="dbTimeStamp"
-                      name="Date" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
                       codePage="1250"
                       dataType="str"
                       length="4"
                       name="Year" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[monthId]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[monthId]"
                       dataType="i4"
                       name="monthId" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Month]"
                       codePage="1250"
                       dataType="str"
                       length="9"
                       name="Month" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weekDayId]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weekDayId]"
                       dataType="i4"
                       name="weekDayId" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weekDay]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[weekDay]"
                       codePage="1250"
                       dataType="str"
                       length="9"
                       name="weekDay" />
+                    <externalMetadataColumn
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Day]"
+                      dataType="i4"
+                      name="Day" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
-                      name="Date" />
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Day]"
+                      dataType="i4"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Day]"
+                      name="Day" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Year]"
                       codePage="1250"
                       dataType="str"
                       length="4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Year]"
                       name="Year" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[monthId]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[monthId]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[monthId]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[monthId]"
                       name="monthId" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Month]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Month]"
                       codePage="1250"
                       dataType="str"
                       length="9"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Month]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Month]"
                       name="Month" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weekDayId]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weekDayId]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weekDayId]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weekDayId]"
                       name="weekDayId" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weekDay]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weekDay]"
                       codePage="1250"
                       dataType="str"
                       length="9"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weekDay]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[weekDay]"
                       name="weekDay" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -476,12 +571,34 @@ END as weekDay
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\Insert into Daty.Paths[Data Conversion Output]"
+              endId="Package\Insert into Daty\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Insert into Daty\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Insert into Daty.Paths[OLE DB Source Output]"
+              endId="Package\Insert into Daty\Data Conversion.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\Insert into Daty\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert into Problemy"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A7E4FA67-20C9-44F3-89B9-8A20E984C40F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert into Problemy"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{05F6D92E-063A-4E4F-8AE0-E7230F1A491E}"
+          SQLTask:SqlStatementSource="INSERT INTO Problemy (Nazwa) VALUES&#xA;('brak'),&#xA;('usterka'),&#xA;('brudny_pojazd'),&#xA;('brak_paliwa'),&#xA;('usterka_i_brudny_pojazd'),&#xA;('usterka_i_brak_paliwa'),&#xA;('brudny_pojazd_i_brak_paliwa'),&#xA;('wszystkie');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -498,39 +615,81 @@ END as weekDay
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Data Flow Task"
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Insert into Daty"
           TopLeft="68.5714287173991,87.1764705118217" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Insert into Problemy"
+          TopLeft="331.24999506399,86.8947384776831" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\Insert into Daty">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Data Flow Task\OLE DB Source"
+          Size="170.666666666667,41.3333333333334"
+          Id="Package\Insert into Daty\OLE DB Destination"
+          TopLeft="131.428571878648,375.71207675061" />
+        <NodeLayout
+          Size="144,42.6666666666667"
+          Id="Package\Insert into Daty\Data Conversion"
+          TopLeft="155.624997681007,218.263162002999" />
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\Insert into Daty\OLE DB Source"
           TopLeft="158.571428908986,97.8823528553788" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="141.428571729636,234.764705676573" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="230.000000319311,139.482352855379">
+          Id="Package\Insert into Daty.Paths[OLE DB Source Output]"
+          TopLeft="228.43154662833,140.549019522045">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,95.2823528211942"
+              EndConnector="0,77.714142480954"
               Start="0,0"
-              End="0,87.7823528211942">
+              End="0,70.214142480954">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,87.7823528211942" />
+                    End="0,70.214142480954" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert into Daty.Paths[Data Conversion Output]"
+          TopLeft="227.624997681007,260.929828669666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.8630924690259,114.782248080944"
+              Start="0,0"
+              End="-10.8630924690259,107.282248080944">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.3911240404721" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.3911240404721"
+                    Point2="0,57.3911240404721"
+                    Point3="-4,57.3911240404721" />
+                  <mssgle:LineSegment
+                    End="-6.8630924690259,57.3911240404721" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.8630924690259,57.3911240404721"
+                    Point2="-10.8630924690259,57.3911240404721"
+                    Point3="-10.8630924690259,61.3911240404721" />
+                  <mssgle:LineSegment
+                    End="-10.8630924690259,107.282248080944" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -543,7 +702,7 @@ END as weekDay
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Insert into Daty\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -556,7 +715,7 @@ END as weekDay
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\Insert into Daty\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

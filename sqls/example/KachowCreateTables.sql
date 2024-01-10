@@ -1,4 +1,4 @@
-USE KachowDW
+USE Kachow
 GO
 
 CREATE TABLE Problemy (
@@ -62,7 +62,7 @@ CREATE TABLE Uzytkownicy (
 GO
 
 CREATE TABLE Przejazdy (
-    ID NUMERIC PRIMARY KEY,
+    ID NUMERIC,
     Czas NUMERIC,
     Dystans NUMERIC,
     Zuzyte_paliwo NUMERIC,
@@ -94,26 +94,5 @@ CREATE TABLE Operacje (
     FOREIGN KEY (DataID) REFERENCES Daty(ID)
 );
 GO
-USE KachowDW
-GO
-ALTER TABLE Uzytkownicy
-ALTER COLUMN Nr_prawa_jazdy VARCHAR(14)
 
-USE KachowDW
-GO
-DROP TABLE Operacje
-GO 
-DROP TABLE Przejazdy
-GO
-DROP TABLE Uzytkownicy
-GO
-DROP TABLE Miasta
-GO
-DROP TABLE Pojazdy
-GO
-DROP TABLE DaneModeli
-GO
-DROP TABLE Daty
-GO
-DROP TABLE Problemy
-GO
+SELECT * FROM Daty

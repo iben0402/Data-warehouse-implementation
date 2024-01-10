@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="8721a826-1d34-4263-ad40-c350b8b2a1cb" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="89f9e50d-ec5c-46d8-9bd6-33d2a14ea272" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Pojazdy</ID>
   <Name>Pojazdy</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -97,53 +97,54 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="6f832dba-8fba-4b77-956f-68ae0ede0917">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d030f16e-feff-48f8-bffe-e7fc0cec493e">
     <DataSourceViewID>Kachow</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="aa4b2f37-ba6f-4f88-ad3a-d84732485694">
+  <ErrorConfiguration dwd:design-time-name="5104d2d8-7689-479e-a29b-58ed6737ac81">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="b2ca9a53-6d54-4c4c-a788-f650dcdefc71">
+    <Attribute dwd:design-time-name="fac06857-3e9d-46be-a7dc-92c4a91a35d3">
       <ID>ID</ID>
       <Name>ID</Name>
       <Usage>Key</Usage>
+      <EstimatedCount>50000</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="9943fcbc-06f2-44cd-8987-5379908b9b9b">
+        <KeyColumn dwd:design-time-name="9b419cb0-52b1-4657-b52a-3972ed1f020c">
           <DataType>Double</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="0397a67d-5dbc-44c3-b93c-647dfdfd477f">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b872ec5d-288b-4a59-addd-bfced11c0c8b">
             <TableID>dbo_Pojazdy</TableID>
             <ColumnID>ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="521a8996-d0af-48f8-bb94-fd1135a5870d">
+        <AttributeRelationship dwd:design-time-name="2095e547-7c00-4cf9-b2a4-e20388cb34be">
           <AttributeID>Dane Modeli - ID</AttributeID>
           <Name>Dane Modeli - ID</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="4c6d7a20-d15e-4b9e-ba31-1ab66ccf2c4c">
+        <AttributeRelationship dwd:design-time-name="281efcc1-fb44-4ff7-b0bb-8019c72be208">
           <AttributeID>Nr Rejestracyjny</AttributeID>
           <Name>Nr Rejestracyjny</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="728bf26a-46f6-4e8f-bb94-48c819f06bac">
+        <AttributeRelationship dwd:design-time-name="36d57bbc-c48e-440b-b74d-bf456c8b35a3">
           <AttributeID>VIN</AttributeID>
           <Name>VIN</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="99fa09cf-feb7-44ba-8f76-6f8aaf704cb9">
+        <AttributeRelationship dwd:design-time-name="1d5c5c09-4a9c-4ea0-9c46-4498dbad9867">
           <AttributeID>Marka</AttributeID>
           <Name>Marka</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="1505a262-5431-4f0d-b869-fefee0352259">
+        <AttributeRelationship dwd:design-time-name="2c0c3e69-65b3-40d5-9569-bf6af444cd75">
           <AttributeID>Model</AttributeID>
           <Name>Model</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="9c6b0b1e-c5a7-4952-9cf3-b4b04772ed16">
+        <AttributeRelationship dwd:design-time-name="926af4be-7598-4dc8-be95-86f198687d91">
           <AttributeID>Srednie Spalanie</AttributeID>
           <Name>Srednie Spalanie</Name>
         </AttributeRelationship>
@@ -152,14 +153,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="3b88b7d5-6d7e-4899-8a8f-ecb7482dd38e">
+    <Attribute dwd:design-time-name="46a81b5f-6426-4700-aec9-bea371e30b48">
       <ID>Dane Modeli - ID</ID>
       <Name>Dane Modeli - ID</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="1fd8fd04-682e-42b1-a142-02d7d82214aa">
+        <KeyColumn dwd:design-time-name="ac034031-fcce-45bc-805c-84fbe12d0324">
           <DataType>Double</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="bcb7108f-56ce-4ba1-b06a-b53d5f16e85c">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7c6c4c79-dfee-4131-a121-f6cc5febfccb">
             <TableID>dbo_DaneModeli</TableID>
             <ColumnID>ID</ColumnID>
           </Source>
@@ -169,14 +170,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="fe7d6140-9397-42cb-ab02-624144f38690">
+    <Attribute dwd:design-time-name="ad0a1f0c-af92-44ef-a705-aa2fa4bec066">
       <ID>Nr Rejestracyjny</ID>
       <Name>Nr Rejestracyjny</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="735886ce-17b2-49a2-87e1-8c464716b9ae">
+        <KeyColumn dwd:design-time-name="b72e44c2-1360-4ea5-9f76-fc281a0ce772">
           <DataType>WChar</DataType>
           <DataSize>10</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="29c95c7b-3a72-4a12-9f8c-08ed04547dcd">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2178e748-a740-470f-a899-95e10f597d4c">
             <TableID>dbo_Pojazdy</TableID>
             <ColumnID>Nr_rejestracyjny</ColumnID>
           </Source>
@@ -185,14 +186,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="29b24e3b-5e65-4a62-b714-d412afc0d862">
+    <Attribute dwd:design-time-name="f0864851-3b18-4540-b30d-7c5b5aae9f71">
       <ID>VIN</ID>
       <Name>VIN</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="803347fd-988b-4b20-bc69-d78a20589ff2">
+        <KeyColumn dwd:design-time-name="94edd1ce-0899-409b-aca1-f2775d2456f7">
           <DataType>WChar</DataType>
           <DataSize>17</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3ec8ce17-176e-41c7-81d0-b76572a7b26b">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a3e44be6-eabc-4bcb-afdd-c8eeb421868d">
             <TableID>dbo_Pojazdy</TableID>
             <ColumnID>VIN</ColumnID>
           </Source>
@@ -201,14 +202,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="36a6d55b-d289-49b9-8d7f-3e30f3edcb2a">
+    <Attribute dwd:design-time-name="f958a028-076d-494a-afda-4b3b981c0ad1">
       <ID>Marka</ID>
       <Name>Marka</Name>
+      <EstimatedCount>17</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="06fefd53-962f-41ca-8ab2-6f7e08c9e830">
+        <KeyColumn dwd:design-time-name="f5d29a7a-df7f-4ac1-a8ae-dcd0f3e25bfe">
           <DataType>WChar</DataType>
           <DataSize>15</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="4f78756b-79a4-4c39-975c-94148356c988">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="70f397fa-9e4f-4f1b-b707-e242b7dd4391">
             <TableID>dbo_DaneModeli</TableID>
             <ColumnID>Marka</ColumnID>
           </Source>
@@ -217,14 +219,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="6e365bfb-e4d3-4a98-bced-c85e2ffb62da">
+    <Attribute dwd:design-time-name="caa7d2c4-0961-436c-8f24-ae6e991d76c0">
       <ID>Model</ID>
       <Name>Model</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="e87a30fb-149a-478c-9dbb-56193d6b4062">
+        <KeyColumn dwd:design-time-name="5f7c6c58-760a-447f-bf99-41c8b5b190c9">
           <DataType>WChar</DataType>
           <DataSize>15</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b6c35eb5-3863-4944-a209-7e9c0d156739">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="db036588-14c8-415e-aa7a-539cb49d2b9a">
             <TableID>dbo_DaneModeli</TableID>
             <ColumnID>Model</ColumnID>
           </Source>
@@ -233,14 +235,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="06855365-6679-42af-9b94-a6a228410aa1">
+    <Attribute dwd:design-time-name="477097fb-47ba-4818-93a6-45ee1ce52cb0">
       <ID>Srednie Spalanie</ID>
       <Name>Srednie Spalanie</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="3bca73be-5ce8-49d9-b33b-dbb3305bd0cd">
+        <KeyColumn dwd:design-time-name="63ef70f3-87cd-4019-95e9-643eeeb4ec48">
           <DataType>WChar</DataType>
           <DataSize>18</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b38c9dc3-055a-49d9-b727-74d61496b1d7">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a5128698-72ae-4e9f-bdd7-f417f8cd7467">
             <TableID>dbo_DaneModeli</TableID>
             <ColumnID>Srednie_spalanie</ColumnID>
           </Source>
@@ -251,21 +253,21 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="c2a0a204-cf48-4690-bd70-03646fabad06">
+    <Hierarchy dwd:design-time-name="6b8aba59-698d-4553-85bc-bf95ff73a0ba">
       <ID>Hierarchy</ID>
       <Name>Hierarchy</Name>
       <Levels>
-        <Level dwd:design-time-name="4e30428c-9dc9-48ca-a272-cbc381ad04d1">
+        <Level dwd:design-time-name="c5499490-7d8c-4aa2-8ba2-c1c43a16fbcc">
           <ID>Marka</ID>
           <Name>Marka</Name>
           <SourceAttributeID>Marka</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="0eafc920-f69b-48a9-af0e-5fddf4781a80">
+        <Level dwd:design-time-name="7853e808-a5f0-496a-b7b0-32fdc3e23ce6">
           <ID>Model</ID>
           <Name>Model</Name>
           <SourceAttributeID>Model</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="8634e261-a0b4-42f7-84f5-cd7af5c44218">
+        <Level dwd:design-time-name="57ba3eef-e67b-4def-b539-4ffc0016e425">
           <ID>Srednie Spalanie</ID>
           <Name>Srednie Spalanie</Name>
           <SourceAttributeID>Srednie Spalanie</SourceAttributeID>

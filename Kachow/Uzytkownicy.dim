@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="4df2c3cc-8a03-47ae-8307-2cb1f50ee242" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="198c2def-f660-4076-9885-707ac35614b9" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Uzytkownicy</ID>
   <Name>Uzytkownicy</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -42,41 +42,42 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="38f03620-032b-44a2-a26e-a8549d9ccc9b">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="29a7c788-a10f-42a8-8fa0-c344ad6da6e7">
     <DataSourceViewID>Kachow</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="bbac3635-1082-4485-b9fc-f2353ad75e44">
+  <ErrorConfiguration dwd:design-time-name="3670fe03-eed5-4e31-b58e-a32252a34a8a">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="0f5226f1-f1aa-4303-90d1-92e66ee34502">
+    <Attribute dwd:design-time-name="9abe65a4-1618-4013-8f05-1f8878893b26">
       <ID>ID</ID>
       <Name>ID</Name>
       <Usage>Key</Usage>
+      <EstimatedCount>80000</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="82dcb830-27f7-4c8c-8e1b-94cf73bdcc5a">
+        <KeyColumn dwd:design-time-name="7fa971ea-2ad2-4357-b16d-84e166fa9937">
           <DataType>Double</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="34c28dbd-fe16-4b6c-8c97-8cec24776c6d">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="47e82c6b-520e-41dc-b14c-8784233e5f72">
             <TableID>dbo_Uzytkownicy</TableID>
             <ColumnID>ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="944259a3-3273-4b3f-be33-d2c7ec58e961">
+      <NameColumn dwd:design-time-name="3dae385a-e672-4142-ac0a-e5f2e0d46bab">
         <DataType>WChar</DataType>
         <DataSize>36</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="9483f436-767d-4e3b-bdc7-b970013a1b13">
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="fb53b587-35db-4010-815d-ac3bdc93c530">
           <TableID>dbo_Uzytkownicy</TableID>
           <ColumnID>ImieINazwisko</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="840e2df0-8fa5-45b9-8508-10d19d13fc72">
+        <AttributeRelationship dwd:design-time-name="9be485a0-247f-4953-a3e8-9a8a3cc38fd0">
           <AttributeID>Nr Prawa Jazdy</AttributeID>
           <Name>Nr Prawa Jazdy</Name>
         </AttributeRelationship>
@@ -84,14 +85,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="eefee896-5540-40a7-a017-c64c8c1bb682">
+    <Attribute dwd:design-time-name="5f6b233a-d305-4e69-ada4-484740940abf">
       <ID>Nr Prawa Jazdy</ID>
       <Name>Nr Prawa Jazdy</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="9a9c6c63-7385-492b-81f9-a2f36cb80eb1">
+        <KeyColumn dwd:design-time-name="0260a0ce-83d3-45b3-986a-eb251d5a78e8">
           <DataType>WChar</DataType>
           <DataSize>13</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="00726f8d-0d34-443d-8e82-836341444c97">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a5334b7f-c6f5-4d2f-9203-821a318f2aed">
             <TableID>dbo_Uzytkownicy</TableID>
             <ColumnID>Nr_prawa_jazdy</ColumnID>
           </Source>

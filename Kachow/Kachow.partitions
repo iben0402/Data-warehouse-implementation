@@ -1,45 +1,836 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="5c2eadde-5aee-4b38-8473-fe0ee7610b52" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e9769038-ffda-465b-baa4-ffdfeffc5089" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Kachow</ID>
   <MeasureGroups>
     <MeasureGroup>
       <ID>Przejazdy</ID>
       <Partitions>
-        <Partition dwd:design-time-name="c0b09a18-225c-4c82-9b16-f399dcc2cf68">
+        <Partition dwd:design-time-name="5b4386fb-bd44-48fd-899f-479147f9f534">
           <ID>Przejazdy</ID>
           <Name>Przejazdy</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="17a0bb0e-7db6-4a88-9718-7c068b5d0bf2">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="7839343a-b479-43a1-ba66-77ca1bfa3a30">
             <DataSourceViewID>Kachow</DataSourceViewID>
             <TableID>dbo_Przejazdy</TableID>
           </Source>
-          <StorageMode>Molap</StorageMode>
+          <StorageMode>Holap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="6142c1ec-63c8-4d8f-81bd-d76d44f7f27a">
+            <SilenceInterval>PT0S</SilenceInterval>
+            <Latency>PT0S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Enabled>true</Enabled>
+            <AggregationStorage>MolapOnly</AggregationStorage>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="67e22cc0-9c1d-4cc7-a4b0-1bdfd10d3f18">
+              <NotificationTechnique>Server</NotificationTechnique>
+            </Source>
+          </ProactiveCaching>
+          <EstimatedRows>239520</EstimatedRows>
+          <AggregationDesignID>AggregationDesign</AggregationDesignID>
         </Partition>
       </Partitions>
+      <AggregationDesigns>
+        <AggregationDesign>
+          <ID>AggregationDesign</ID>
+          <Name>AggregationDesign</Name>
+          <CreatedTimestamp>2024-01-09T12:52:49.77Z</CreatedTimestamp>
+          <LastSchemaUpdate>2024-01-09T12:52:49.77Z</LastSchemaUpdate>
+          <EstimatedRows>239520</EstimatedRows>
+          <Dimensions>
+            <Dimension>
+              <CubeDimensionID>Problemy</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>8</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nazwa</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Daty</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>27028</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dzien</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Miesiac</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Miesiac No</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Rok</AttributeID>
+                  <EstimatedCount>74</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dzien Tygodnia</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Miasta</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>10</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nazwa</AttributeID>
+                  <EstimatedCount>10</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Liczba Mieszkancow</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Powierzchnia</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Pojazdy</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>50000</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dane Modeli - ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nr Rejestracyjny</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>VIN</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Marka</AttributeID>
+                  <EstimatedCount>17</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Model</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Srednie Spalanie</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>80000</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nr Prawa Jazdy</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <Aggregations>
+            <Aggregation>
+              <ID>Aggregation 0</ID>
+              <Name>Aggregation 0</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1</ID>
+              <Name>Aggregation 1</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Rok</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2</ID>
+              <Name>Aggregation 2</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Rok</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3</ID>
+              <Name>Aggregation 3</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 4</ID>
+              <Name>Aggregation 4</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 5</ID>
+              <Name>Aggregation 5</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 6</ID>
+              <Name>Aggregation 6</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Rok</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 7</ID>
+              <Name>Aggregation 7</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Uzytkownicy</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+          </Aggregations>
+        </AggregationDesign>
+      </AggregationDesigns>
     </MeasureGroup>
     <MeasureGroup>
       <ID>Operacje</ID>
       <Partitions>
-        <Partition dwd:design-time-name="afeb878c-5765-4edc-9c00-edbdc71b7195">
+        <Partition dwd:design-time-name="4cfa6e6b-2efe-4b8c-8584-e9d97c2ec602">
           <ID>Operacje</ID>
           <Name>Operacje</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="068e0fa4-4892-4423-b256-bffd7c4e990c">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3b7ddeba-461b-4126-925a-5ae9e8b27034">
             <DataSourceViewID>Kachow</DataSourceViewID>
             <TableID>dbo_Operacje</TableID>
           </Source>
-          <StorageMode>Molap</StorageMode>
+          <StorageMode>Holap</StorageMode>
           <CurrentStorageMode>Molap</CurrentStorageMode>
           <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="f178e64a-bad1-4fcb-a56b-f8368cc460ad">
+            <SilenceInterval>PT0S</SilenceInterval>
+            <Latency>PT0S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Enabled>true</Enabled>
+            <AggregationStorage>MolapOnly</AggregationStorage>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="737fc8dd-f708-4b96-87ef-cdd18c681480">
+              <NotificationTechnique>Server</NotificationTechnique>
+            </Source>
+          </ProactiveCaching>
+          <EstimatedRows>45509</EstimatedRows>
+          <AggregationDesignID>AggregationDesign</AggregationDesignID>
         </Partition>
       </Partitions>
+      <AggregationDesigns>
+        <AggregationDesign>
+          <ID>AggregationDesign</ID>
+          <Name>AggregationDesign</Name>
+          <CreatedTimestamp>2024-01-09T13:02:29.036667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2024-01-09T13:02:29.036667Z</LastSchemaUpdate>
+          <EstimatedRows>45509</EstimatedRows>
+          <Dimensions>
+            <Dimension>
+              <CubeDimensionID>Daty</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>27028</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dzien</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Miesiac</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Miesiac No</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Rok</AttributeID>
+                  <EstimatedCount>74</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dzien Tygodnia</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Pojazdy</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>50000</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dane Modeli - ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nr Rejestracyjny</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>VIN</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Marka</AttributeID>
+                  <EstimatedCount>17</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Model</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Srednie Spalanie</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Problemy</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>8</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nazwa</AttributeID>
+                  <EstimatedCount>8</EstimatedCount>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Pracownicy</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>30</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Wyksztalcenie</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Stanowisko</AttributeID>
+                  <EstimatedCount>3</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ID Miasta</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Imie I Nazwisko</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Miasta</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>ID</AttributeID>
+                  <EstimatedCount>10</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Nazwa</AttributeID>
+                  <EstimatedCount>10</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Liczba Mieszkancow</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Powierzchnia</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <Aggregations>
+            <Aggregation>
+              <ID>Aggregation 0</ID>
+              <Name>Aggregation 0</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Rok</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pracownicy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Stanowisko</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1</ID>
+              <Name>Aggregation 1</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pracownicy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Stanowisko</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2</ID>
+              <Name>Aggregation 2</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pracownicy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3</ID>
+              <Name>Aggregation 3</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pracownicy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Stanowisko</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 4</ID>
+              <Name>Aggregation 4</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pracownicy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 5</ID>
+              <Name>Aggregation 5</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pracownicy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Stanowisko</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 6</ID>
+              <Name>Aggregation 6</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pracownicy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Stanowisko</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 7</ID>
+              <Name>Aggregation 7</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Daty</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pojazdy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Marka</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Problemy</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Pracownicy</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>ID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Miasta</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+          </Aggregations>
+        </AggregationDesign>
+      </AggregationDesigns>
     </MeasureGroup>
   </MeasureGroups>
 </Cube>

@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="b9dee323-8703-436c-8692-da45059fcb72" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="433a596a-c8d4-47bc-bf46-dd63be738f89" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Daty</ID>
   <Name>Daty</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -93,46 +93,47 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="99e35438-ec9c-4f45-a9cb-239abc7fc7d2">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="e9c5262b-c82a-4ee4-9798-7a40bcae0717">
     <DataSourceViewID>Kachow</DataSourceViewID>
   </Source>
   <Type>Time</Type>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="e94215f4-0b78-4956-a4f4-940be7cadcea">
+  <ErrorConfiguration dwd:design-time-name="aba49ae2-d90d-4829-92a2-c4fe75e2f4e8">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="6c98183c-a07a-42d8-b463-78fd699a8445">
+    <Attribute dwd:design-time-name="98ec7308-1a4c-4e75-b885-8349657f0ec3">
       <ID>ID</ID>
       <Name>ID</Name>
       <Usage>Key</Usage>
+      <EstimatedCount>27028</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="47176287-74ca-4383-a386-aff4053343a2">
+        <KeyColumn dwd:design-time-name="1b098776-7c69-477e-b51a-a7effbd15658">
           <DataType>Double</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="d909a918-25e2-41ad-91ae-0fcb9e3097d7">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="179562da-be35-4d7f-b329-bb2ee55490d5">
             <TableID>dbo_Daty</TableID>
             <ColumnID>ID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="e566a608-b3fd-4d2e-a99e-31b08005448b">
+        <AttributeRelationship dwd:design-time-name="4e56840a-48d1-43a6-aa74-1dd517e0bc8f">
           <AttributeID>Dzien</AttributeID>
           <Name>Dzien</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="392a5ca4-7ed6-4f93-8fa7-fa11ad9d8d05">
+        <AttributeRelationship dwd:design-time-name="4ebfef7b-d31c-41f9-8938-2081face7220">
           <AttributeID>Miesiac</AttributeID>
           <Name>Miesiac</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="de056dfc-01e2-4c11-b084-308cd8a65e83">
+        <AttributeRelationship dwd:design-time-name="8dc17a70-494a-42f2-8f00-d151da27c95d">
           <AttributeID>Rok</AttributeID>
           <Name>Rok</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="00bd83f2-814b-4961-ac06-eb9f13f52855">
+        <AttributeRelationship dwd:design-time-name="f0caed96-8aa3-444d-b357-e60d9292677b">
           <AttributeID>Dzien Tygodnia</AttributeID>
           <Name>Dzien Tygodnia</Name>
         </AttributeRelationship>
@@ -141,14 +142,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="9dd88493-6c5a-4c92-bbe3-16dc635b4009">
+    <Attribute dwd:design-time-name="559185fc-a904-40e4-9767-28b64198c277">
       <ID>Dzien</ID>
       <Name>Dzien</Name>
       <Type>DayOfMonth</Type>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="79671330-aae7-4dc1-994e-824586f70efd">
+        <KeyColumn dwd:design-time-name="f1e5528d-8edb-4082-bae1-59efd3ea1a81">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e9ed3f88-df2e-4e09-91d0-5283f2451ba1">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8e51e390-28f9-4f9c-ba59-266c1195f047">
             <TableID>dbo_Daty</TableID>
             <ColumnID>Dzien</ColumnID>
           </Source>
@@ -157,22 +158,22 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="2dd38833-b734-4c7e-826a-c82f2283c898">
+    <Attribute dwd:design-time-name="e1106a57-efa0-4646-90b1-164ef5df0a10">
       <ID>Miesiac</ID>
       <Name>Miesiac</Name>
       <Type>Months</Type>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="61f56e0f-eac0-49aa-b1b3-fa428de8ea13">
+        <KeyColumn dwd:design-time-name="57eeac32-550c-4059-8e7b-c23c65dd3857">
           <DataType>WChar</DataType>
           <DataSize>11</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="48e99546-e39f-442e-af0b-bef0fb57d14f">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c70279e1-b6f7-4146-9fd2-8a138961314b">
             <TableID>dbo_Daty</TableID>
             <ColumnID>Miesiac</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="dd7e72de-c597-47b7-90d3-e8d708fb4dbb">
+        <AttributeRelationship dwd:design-time-name="5f53dbde-64dd-4341-b8a8-8882031c5f3e">
           <AttributeID>Miesiac No</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Miesiac No</Name>
@@ -183,14 +184,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="d68760f7-0663-4e12-adbe-d779b6f79432">
+    <Attribute dwd:design-time-name="4972c695-7620-4437-9a4d-eabd610dcde0">
       <ID>Miesiac No</ID>
       <Name>Miesiac No</Name>
       <Type>MonthOfYear</Type>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="69316931-8e6e-4f2e-9ef1-9abce5882026">
+        <KeyColumn dwd:design-time-name="4be5dd41-959d-4e27-a957-b99ba020efb0">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="619c3835-0691-4701-9d3a-b99738198350">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="94788cf7-c4dc-4f2c-ab5b-862e367d2a44">
             <TableID>dbo_Daty</TableID>
             <ColumnID>Miesiac_No</ColumnID>
           </Source>
@@ -201,14 +202,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="7f192873-c631-4cf6-892a-768661fdd47e">
+    <Attribute dwd:design-time-name="13155f97-55a4-46cd-aaaa-bf77e4d6a2f7">
       <ID>Rok</ID>
       <Name>Rok</Name>
       <Type>Years</Type>
+      <EstimatedCount>74</EstimatedCount>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="3750d09f-ebd0-490c-8a12-75f37be3bcfc">
+        <KeyColumn dwd:design-time-name="f0055afd-6f6d-4c60-a4f8-55eae8b8a573">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3378b990-db33-43be-9416-1dbca686c192">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eb647f8b-8340-446a-817e-9af5e369ce93">
             <TableID>dbo_Daty</TableID>
             <ColumnID>Rok</ColumnID>
           </Source>
@@ -217,14 +219,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="0dfe5e1c-0dba-475e-9526-74005dccd302">
+    <Attribute dwd:design-time-name="65f6d80b-a7b4-497a-a8e0-d75304e86768">
       <ID>Dzien Tygodnia</ID>
       <Name>Dzien Tygodnia</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="0e0b5763-c04e-40ba-9885-073ad3ce2dba">
+        <KeyColumn dwd:design-time-name="d80fd6b2-2090-4327-b341-592d87c25b29">
           <DataType>WChar</DataType>
           <DataSize>12</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="078275ba-312d-489c-9870-9031deecfe23">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ca1c65ff-c066-494d-90f6-d422620d9391">
             <TableID>dbo_Daty</TableID>
             <ColumnID>Dzien_tygodnia</ColumnID>
           </Source>
@@ -235,21 +237,21 @@
     </Attribute>
   </Attributes>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="4057f59d-7fa9-487e-be11-a2fd38f1bcef">
+    <Hierarchy dwd:design-time-name="9f9c73a8-04c8-4e1e-899c-871837378e8c">
       <ID>Hierarchy</ID>
       <Name>Hierarchy</Name>
       <Levels>
-        <Level dwd:design-time-name="0f9757ad-0302-447e-93cb-2d233e9b26a3">
+        <Level dwd:design-time-name="a18b257a-f2e4-4ff1-8655-9d14c02d1047">
           <ID>Rok</ID>
           <Name>Rok</Name>
           <SourceAttributeID>Rok</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="892a1385-ded2-4cbf-95b0-26b312c587b5">
+        <Level dwd:design-time-name="bf7a2984-ad6a-409e-9fd2-7a6d54d32b11">
           <ID>Miesiac</ID>
           <Name>Miesiac</Name>
           <SourceAttributeID>Miesiac</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="f3eced65-60a4-4745-9ab5-f814a01e5455">
+        <Level dwd:design-time-name="e52213ea-04f1-4f2b-9116-aeed575a26e5">
           <ID>Dzien</ID>
           <Name>Dzien</Name>
           <SourceAttributeID>Dzien</SourceAttributeID>

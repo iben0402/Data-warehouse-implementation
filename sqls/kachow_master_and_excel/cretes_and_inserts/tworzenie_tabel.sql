@@ -24,7 +24,7 @@ GO
 
 CREATE TABLE Przejazdy (
     ID INT IDENTITY(1,1) PRIMARY KEY,
-    Data DATETIME,
+    Data DATE,
     Czas NUMERIC,
     Dystans NUMERIC,
 	Cena NUMERIC,
@@ -56,17 +56,7 @@ CREATE TABLE Operacje (
     Czas_Operacji NUMERIC,
     Rodzaj_operacji VARCHAR(20),
     ID_problemu INT,
-    Czas TIME,
+    Data_operacji DATE,
     FOREIGN KEY (ID_problemu) REFERENCES Problemy(ID)
 );
-GO
-
-
-USE KachowMaster;
-GO
-DROP TABLE Przejazdy
-GO
-DROP TABLE Pojazdy
-GO
-DROP TABLE Uzytkownicy
 GO
